@@ -55,7 +55,7 @@ function Distancia() {
         />
         </div>
 
-        <button type="submit" className="bg-indigo-600 text-white px-4 py-2 rounded">
+        <button type="submit" className="bg-amber-600 text-white px-4 py-2 rounded">
             Calcular Distancia
         </button>
     </form>

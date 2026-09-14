@@ -1,55 +1,80 @@
 import { useState } from "react";
 import Velocidad from "./components/velocidad";
 import Distancia from "./components/distancia";
+import Tiempo from "./components/tiempo";
+import Fuerza from "./components/fuerza";
+import Peso from "./components/peso";
+import Energia from "./components/energia";
+import img1 from './assets/img1.png';
+import img2 from './assets/img1.png';
+
 
 function App() {
-  const [seccion, setSeccion] = useState('velocidad');
+  const [seccion, setSeccion] = useState('inicio');
 
 
   return (
-    <div className="flex h-screen overflow-hidden bg-gray-100 font-sans">
-      
-      {/* MENÚ LATERAL */}
-      <aside className="w-64 bg-slate-900 text-slate-300 p-6 flex flex-col justify-between shadow-lg">
-        <div>
-          <h2 className="text-xl font-black text-white mb-8 tracking-wide">Proyecto Física</h2>
-          <nav className="space-y-2">
-            <button 
-              onClick={() => setSeccion('velocidad')}
-              className={`w-full text-left py-3 px-4 rounded-xl font-medium transition ${seccion === 'velocidad' ? 'bg-indigo-600 text-white shadow-md' : 'hover:bg-slate-800'}`}
-            >
-              Velocidad
-            </button>
-            <button 
-              onClick={() => setSeccion('distancia')}
-              className={`w-full text-left py-3 px-4 rounded-xl font-medium transition ${seccion === 'distancia' ? 'bg-indigo-600 text-white shadow-md' : 'hover:bg-slate-800'}`}
-            >
-              Distancia
-            </button>
-            <button 
-              onClick={() => setSeccion('fuerza')}
-              className={`w-full text-left py-3 px-4 rounded-xl font-medium transition ${seccion === 'fuerza' ? 'bg-indigo-600 text-white shadow-md' : 'hover:bg-slate-800'}`}
-            >
-              Fuerza
-            </button>
-          </nav>
-        </div>
-        <div className="text-xs text-slate-500 text-center">ADSO • 2026</div>
+    <div className="flex h-screen">
+      <aside className="w-64 bg-indigo-500 p-4">
+        <h1 className="text-xl text-cyan-100 font-extrabold mb-6 text-center"> CALCIENFIT</h1>
+        <nav>
+          <button onClick={() => setSeccion('inicio')} className={`w-full text-left font-bold p-2 rounded hover:bg-cyan-300 ${seccion ==='inicio' ? 'bg-cyan-100' : ''} `}>
+            Inicio
+          </button>
+
+          <button onClick={() => setSeccion('velocidad')} className={`w-full text-left font-bold p-2 rounded hover:bg-cyan-300 ${seccion ==='velocidad' ? 'bg-cyan-100' : ''} `}>
+            Velocidad
+          </button>
+
+          <button onClick={() => setSeccion('distancia')} className={`w-full text-left font-bold p-2 rounded hover:bg-cyan-300 ${seccion ==='distancia' ? 'bg-cyan-100' : ''} `}>
+            Distancia
+          </button>
+
+          <button onClick={() => setSeccion('tiempo')} className={`w-full text-left font-bold p-2 rounded hover:bg-cyan-300 ${seccion ==='tiempo' ? 'bg-cyan-100' : ''} `}>
+            Tiempo
+          </button>
+
+          <button onClick={() => setSeccion('fuerza')} className={`w-full text-left font-bold p-2 rounded hover:bg-cyan-300 ${seccion ==='fuerza' ? 'bg-cyan-100' : ''} `}>
+            Fuercita
+          </button>
+
+          <button onClick={() => setSeccion('peso')} className={`w-full text-left font-bold p-2 rounded hover:bg-cyan-300 ${seccion ==='peso' ? 'bg-cyan-100' : ''} `}>
+            Peso
+          </button>
+
+          <button onClick={() => setSeccion('energia')} className={`w-full text-left font-bold p-2 rounded hover:bg-cyan-300 ${seccion ==='energia' ? 'bg-cyan-100' : ''} `}>
+            Energía Cinética 
+          </button>
+        </nav>
       </aside>
 
-      {/* CONTENIDO PRINCIPAL DINÁMICO */}
-      <main className="flex-1 p-10 overflow-y-auto">
-        <div className="max-w-4xl mx-auto">
-          {seccion === 'velocidad' && <Velocidad />}
-          {seccion === 'distancia' && <Distancia />}
-          {seccion === 'fuerza' && (
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-              <h2 className="text-xl font-bold text-slate-800">Formulario de Fuerza</h2>
-              <p className="text-slate-500 mt-2">Aquí montaremos el formulario de fuerza pronto.</p>
-            </div>
-          )}
-        </div>
+      <main className="flex-1 p-6">
+        {seccion === 'inicio' && (
+
+          <div className="flex flex-col items-center justify-center h-full text-center" 
+          style={{
+                  backgroundImage: `url(${img1})`,
+                  backgroundRepeat: 'repeat',
+                  backgroundSize: '300px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                }}>
+
+            <h1 className="text-5xl w-full text-center font-extrabold text-cyan-900 mb-4 "> BIENVENIDA A TU CALCULADORA VIRTUALita  </h1>
+
+            <p className="text-lg text-indigo-800 font-extrabold"> Elige una opción para realizar el calculo</p>
+
+
+          </div>
+        )}
+        {seccion === 'velocidad' && <Velocidad/>}
+        {seccion === 'distancia' && <Distancia/>}
+        {seccion === 'tiempo' && <Tiempo/>}
+        {seccion === 'fuerza' && <Fuerza/>}
+        {seccion === 'peso' && <Peso/>}
+        {seccion === 'energia' && <Energia/>}
+
       </main>
+
 
     </div>
   );

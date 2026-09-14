@@ -55,7 +55,7 @@ function Velocidad() {
         />
         </div>
 
-        <button type="submit" className="bg-indigo-600 text-white px-4 py-2 rounded">
+        <button type="submit" className="bg-indigo-900 text-white px-4 py-2 rounded">
             Calcular Velocidad
         </button>
     </form>
