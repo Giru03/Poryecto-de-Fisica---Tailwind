@@ -7,9 +7,7 @@ const app = express(); // Asignamos la dependencia a una constante
 const port = 5000; // Indicamos el puerto
 
 // cors 
-app.use(cors({
-    origin: 'http://localhost:5173',
-}));
+app.use(cors());
 
 app.use(express.json()); // Se especifica el formato de trabajo  
 
