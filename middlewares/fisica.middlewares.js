@@ -110,6 +110,12 @@ export const validarFuerza=(req,res, next) => {
             });
         };
 
+        if(aceleracion===0){
+        return res.status(400).json({
+            mensaje: "La aceleración no puede ser 0"
+        });
+    };
+
 next();
 }
 
@@ -131,6 +137,12 @@ export const validarPeso=(req,res,next)=> {
     if(masa <0) {
         return res.status(400).json({
             mensaje: "La masa debe ser mayor a 0"
+        });
+    };
+
+    if(masa===0){
+        return res.status(400).json({
+            mensaje: "La masa no puede ser 0"
         });
     };
 
@@ -156,7 +168,13 @@ export const ValidarEnergia=(req,res,next) =>{
         return res.status(400).json({
             mensaje: "La masa y la velocidad deben de ser mayor a 0 "
         })
-    }
+    };
+
+    if(masa===0){
+        return res.status(400).json({
+            mensaje: "La masa no puede ser 0"
+        });
+    };
 
 next()
 }

@@ -1,7 +1,15 @@
 import express from "express"; // Importamos la dependencia de express
 import fisicaRoutes from "./routes/fisica.routes.js"
+import cors from "cors"; // Importamos la dependencia de cors
+
+
 const app = express(); // Asignamos la dependencia a una constante
 const port = 5000; // Indicamos el puerto
+
+// cors 
+app.use(cors({
+    origin: 'http://localhost:5173',
+}));
 
 app.use(express.json()); // Se especifica el formato de trabajo  
 
