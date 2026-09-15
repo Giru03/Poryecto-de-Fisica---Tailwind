@@ -9,7 +9,8 @@ function Distancia() {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:5000/fisica/distancia', {
+            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+        const  response = await fetch(`${API_URL}/fisica/velocidad`, {
                 method:'POST',
                 headers: {
                     'Content-Type':'application/json', 
